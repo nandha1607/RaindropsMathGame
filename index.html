@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>RainDrops</title>
+    <style>
+        /* Add this CSS code for the game title */
+        h1 {
+            text-align: center; /* Center the text */
+            font-size: 36px; /* Adjust the font size as needed */
+            color: #4183C4; /* Set the text color */
+            margin-top: 20px; /* Add some top margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <h1>Cloud - A Math Game</h1> 
+    <div id="game-container">
+        <canvas id="gameCanvas" width="320" height="480"></canvas>
+        <div id="score-panel">Score: <span id="score">0</span></div>
+        <div id="puzzle-result"><input type="text" readonly size="18" id="puzzleResult"></div>
+        <div class="button-container">
+            <button class="button black" onclick="addKeyVal('7')">7</button>
+            <button class="button black" onclick="addKeyVal('8')">8</button>
+            <button class="button black" onclick="addKeyVal('9')">9</button>
+        </div>
+        <div class="button-container">
+            <button class="button black" onclick="addKeyVal('4')">4</button>
+            <button class="button black" onclick="addKeyVal('5')">5</button>
+            <button class="button black" onclick="addKeyVal('6')">6</button>
+        </div>
+        <div class="button-container">
+            <button class="button black" onclick="addKeyVal('1')">1</button>
+            <button class="button black" onclick="addKeyVal('2')">2</button>
+            <button class="button black" onclick="addKeyVal('3')">3</button>
+        </div>
+        <div class="button-container">
+            <button class="button black" onclick="addKeyVal('0')">0</button>
+            <button class="button gray" onclick="clearVal()">Clear</button>
+            <button class="button orange" onclick="validateVal()">Enter</button>
+        </div>
+    </div>
+
+    <!-- Start Game Overlay -->
+    <div id="startOverlay">
+        <button id="startGameButton" onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverOverlay" style="display: none;">
+        <div id="finalScore">Final Score: <span id="finalScoreValue">0</span></div>
+        <button id="restartGameButton" onclick="restartGame()">Restart Game</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
