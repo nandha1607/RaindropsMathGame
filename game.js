@@ -180,46 +180,21 @@ function updateScore() {
     $("#score").text(newScore);
 }
 
-jQuery(document).bind('keypress', '0', function (evt) {
-    addKeyVal('0');
+// Common function to handle key presses
+function handleKeyPress(key) {
+    addKeyVal(key);
     return false;
-});
-jQuery(document).bind('keypress', '1', function (evt) {
-    addKeyVal('1');
-    return false;
-});
-jQuery(document).bind('keypress', '2', function (evt) {
-    addKeyVal('2');
-    return false;
-});
-jQuery(document).bind('keypress', '3', function (evt) {
-    addKeyVal('3');
-    return false;
-});
-jQuery(document).bind('keypress', '4', function (evt) {
-    addKeyVal('4');
-    return false;
-});
-jQuery(document).bind('keypress', '5', function (evt) {
-    addKeyVal('5');
-    return false;
-});
-jQuery(document).bind('keypress', '6', function (evt) {
-    addKeyVal('6');
-    return false;
-});
-jQuery(document).bind('keypress', '7', function (evt) {
-    addKeyVal('7');
-    return false;
-});
-jQuery(document).bind('keypress', '8', function (evt) {
-    addKeyVal('8');
-    return false;
-});
-jQuery(document).bind('keypress', '9', function (evt) {
-    addKeyVal('9');
-    return false;
-});
+}
+
+// Bind key press events for digits (0-9)
+for (var i = 0; i <= 9; i++) {
+    var key = i.toString();
+    jQuery(document).bind('keypress', key, function (evt) {
+        return handleKeyPress(key);
+    });
+}
+
+// Bind key events for backspace, space, and return
 jQuery(document).bind('keydown', 'del', function (evt) {
     clearVal();
     return false;
@@ -237,3 +212,4 @@ jQuery(document).bind('keydown', 'return', function (evt) {
     validateVal();
     return false;
 });
+
